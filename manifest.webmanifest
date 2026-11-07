@@ -1,0 +1,16 @@
+{
+  "name": "TSELATRA MOBILE",
+  "short_name": "TSELATRA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f6fc",
+  "theme_color": "#1045a2",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
