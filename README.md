@@ -1,2 +1,179 @@
 # tselatra-mobile
 Un site comme mvola,airtel
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1045a2">
+<meta name="description" content="TSELATRA MOBILE - Démonstration de services mobiles malgaches.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>TSELATRA MOBILE</title>
+<style>
+:root{--blue:#1045a2;--red:#e52c2c;--green:#188a43;--bg:#f3f6fc;--ink:#15233d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(135deg,#1045a2,#1d62c7);color:white;padding:22px 18px 28px;border-radius:0 0 24px 24px}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:48px;height:48px;border-radius:14px;background:white;color:var(--blue);display:grid;place-items:center;font-size:27px}
+h1{font-size:21px;margin:0;letter-spacing:.4px}header p{margin:5px 0 0;color:#dce8ff;font-size:13px}
+.hero{margin-top:22px;background:#ffffff20;border:1px solid #ffffff35;padding:17px;border-radius:17px}
+.hero h2{font-size:25px;margin:0 0 7px}.hero p{line-height:1.45}
+main{max-width:700px;margin:auto;padding:16px}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;background:white;padding:6px;border-radius:14px;box-shadow:0 3px 15px #17294b0d}
+nav button{border:0;background:transparent;padding:11px 5px;border-radius:10px;font-weight:700;color:#53627a}
+nav button.active{background:var(--blue);color:white}
+section{display:none;margin-top:17px}section.active{display:block}
+h2.section-title{font-size:19px;margin:18px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile,.plan,.panel{background:white;border-radius:15px;padding:15px;box-shadow:0 3px 15px #17294b0a}
+.tile .emoji{font-size:25px}.tile b{display:block;margin:7px 0 3px}.muted{color:#66748a;font-size:13px}
+.plan{margin:10px 0}.plan-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:800;color:var(--blue);font-size:19px}
+button.action{border:0;border-radius:11px;background:var(--blue);color:white;padding:12px 14px;font-weight:700;width:100%;margin-top:11px}
+button.outline{background:white;border:1px solid #cbd5e5;color:var(--blue)}
+input,textarea,select{width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;font:inherit;margin:6px 0 10px}
+.notice{background:#fff6df;border:1px solid #f0d99c;padding:12px;border-radius:12px;color:#725317;font-size:13px;line-height:1.45}
+.status{font-size:13px;color:var(--green);margin-top:9px;white-space:pre-line}
+footer{text-align:center;color:#78869b;font-size:12px;padding:25px 8px}
+.paiement-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px}
+.paiement-options label{display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="mark">〰</div><div><h1>TSELATRA MOBILE</h1><p>Mifandray lavitra, miaraka hatrany !</p></div></div>
+ <div class="hero"><h2>La connexion malgache 🇲🇬</h2><p>Découvrez notre projet de services mobiles et nos futurs forfaits 4G/5G.</p></div>
+</header>
+<main>
+<nav aria-label="Navigation">
+ <button class="active" data-tab="home">Accueil</button><button data-tab="plans">Forfaits</button><button data-tab="client">Espace client</button>
+</nav>
+
+<section id="home" class="active">
+ <h2 class="section-title">Bienvenue chez TSELATRA !</h2>
+ <div class="grid">
+  <div class="tile"><span class="emoji">🌐</span><b>Internet</b><span class="muted">Futurs forfaits 4G/5G</span></div>
+  <div class="tile"><span class="emoji">📞</span><b>Appels</b><span class="muted">Communication mobile</span></div>
+  <div class="tile"><span class="emoji">💬</span><b>SMS</b><span class="muted">Messages mobiles</span></div>
+  <div class="tile"><span class="emoji">💳</span><b>Carte SIM</b><span class="muted">Future carte TSELATRA</span></div>
+ </div>
+ <h2 class="section-title">Notre engagement</h2>
+ <div class="panel">Un projet malgache pour rapprocher les personnes, avec des services simples et accessibles.</div>
+ <p class="notice">Cette application est une maquette. TSELATRA MOBILE ne fournit pas encore de réseau, de carte SIM, d'appels, de SMS ni d'accès Internet mobile.</p>
+</section>
+
+<section id="plans">
+ <h2 class="section-title">Nos futurs forfaits Internet</h2>
+ <p class="muted">Prix fictifs pour préparer le projet. Aucun achat réel n'est possible.</p>
+ <div id="plans-list"></div>
+ <p id="plan-status" class="status" aria-live="polite"></p>
+</section>
+
+<section id="client">
+  <h2 class="section-title">Inscription & Paiement</h2>
+  
+  <div class="panel">
+    <b>Créer mon compte TSELATRA</b>
+    <p class="muted">Remplis les informations ci-dessous (mode démonstration)</p>
+
+    <label for="nom">Nom complet</label>
+    <input id="nom" type="text" placeholder="Ex. Rakoto Jean">
+
+    <label for="phone">Numéro de téléphone</label>
+    <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
+
+    <label for="forfait">Choisir un forfait</label>
+    <select id="forfait">
+      <option value="">-- Sélectionne un forfait --</option>
+      <option value="V2 2 Go - 1 000 Ar">V2 2 Go - 1 000 Ar</option>
+      <option value="Mini Internet - 500 Ar">Mini Internet - 500 Ar</option>
+      <option value="Internet journalier - 1 000 Ar">Internet journalier - 1 000 Ar</option>
+      <option value="Internet hebdomadaire - 3 000 Ar">Internet hebdomadaire - 3 000 Ar</option>
+      <option value="Internet mensuel - 10 000 Ar">Internet mensuel - 10 000 Ar</option>
+    </select>
+
+    <label>Mode de paiement</label>
+    <div class="paiement-options">
+      <label>
+        <input type="radio" name="paiement" value="MVola" checked> MVola
+      </label>
+      <label>
+        <input type="radio" name="paiement" value="Airtel Money"> Airtel Money
+      </label>
+      <label>
+        <input type="radio" name="paiement" value="Orange Money"> Orange Money
+      </label>
+      <label>
+        <input type="radio" name="paiement" value="Carte bancaire"> Carte bancaire
+      </label>
+    </div>
+
+    <button class="action" id="inscription">Valider l’inscription</button>
+    <p id="inscription-status" class="status" aria-live="polite"></p>
+  </div>
+
+  <h2 class="section-title">Services prévus</h2>
+  <div class="panel">
+    💰 Consultation du solde — à venir<br><br>
+    📊 Consommation Internet — à venir<br><br>
+    💳 Gestion de la carte SIM — à venir
+  </div>
+</section>
+
+<footer>© 2026 TSELATRA MOBILE · Madagascar · Version démonstration</footer>
+</main>
+
+<script>
+const plans = [
+  ["Mini Internet", "500 Ar", "Petit forfait découverte"],
+  ["Internet journalier", "1 000 Ar", "Pour une journée"],
+  ["V2 2 Go", "1 000 Ar", "2 Go de data"],
+  ["Internet hebdomadaire", "3 000 Ar", "Pour 7 jours"],
+  ["Internet mensuel", "10 000 Ar", "Pour 30 jours"]
+];
+
+document.getElementById('plans-list').innerHTML = plans.map((p, i) =>
+  `<div class="plan">
+    <div class="plan-top">
+      <div>
+        <b>${p[0]}</b>
+        <div class="muted">${p[2]}</div>
+      </div>
+      <div class="price">${p[1]}</div>
+    </div>
+    <button class="action outline" data-plan="${i}">Choisir ce forfait</button>
+  </div>`
+).join('');
+
+document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('active', x === b));
+  document.querySelectorAll('main section').forEach(s => s.classList.toggle('active', s.id === b.dataset.tab));
+}));
+
+document.getElementById('plans-list').addEventListener('click', e => {
+  if (e.target.dataset.plan !== undefined) {
+    const p = plans[Number(e.target.dataset.plan)];
+    document.getElementById('plan-status').textContent = `${p[0]} sélectionné. Aucun paiement effectué : forfait non commercialisé.`;
+  }
+});
+
+document.getElementById('inscription').addEventListener('click', () => {
+  const nom = document.getElementById('nom').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const forfait = document.getElementById('forfait').value;
+  const paiement = document.querySelector('input[name="paiement"]:checked')?.value;
+
+  if (!nom || !phone || !forfait) {
+    document.getElementById('inscription-status').textContent = 'Merci de remplir tous les champs.';
+    return;
+  }
+
+  document.getElementById('inscription-status').textContent = 
+    `✅ Inscription simulée réussie !\nNom : ${nom}\nNuméro : ${phone}\nForfait : ${forfait}\nPaiement : ${paiement}\n\nAucun paiement réel n'a été effectué (mode démonstration).`;
+});
+
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
