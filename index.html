@@ -1,4 +1,53 @@
-<!doctype html>
+<!doctype html><section id="client">
+  <h2 class="section-title">Inscription & Paiement</h2>
+  
+  <div class="panel">
+    <b>Créer mon compte TSELATRA</b>
+    <p class="muted">Remplis les informations ci-dessous (mode démonstration)</p>
+
+    <label for="nom">Nom complet</label>
+    <input id="nom" type="text" placeholder="Ex. Rakoto Jean">
+
+    <label for="phone">Numéro de téléphone</label>
+    <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
+
+    <label for="forfait">Choisir un forfait</label>
+    <select id="forfait" style="width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;margin:6px 0 10px;font:inherit;">
+      <option value="">-- Sélectionne un forfait --</option>
+      <option value="V2 2 Go - 1 000 Ar">V2 2 Go - 1 000 Ar</option>
+      <option value="Mini Internet - 500 Ar">Mini Internet - 500 Ar</option>
+      <option value="Internet journalier - 1 000 Ar">Internet journalier - 1 000 Ar</option>
+      <option value="Internet hebdomadaire - 3 000 Ar">Internet hebdomadaire - 3 000 Ar</option>
+      <option value="Internet mensuel - 10 000 Ar">Internet mensuel - 10 000 Ar</option>
+    </select>
+
+    <label>Mode de paiement</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px;">
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="MVola" checked> MVola
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Airtel Money"> Airtel Money
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Orange Money"> Orange Money
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Carte bancaire"> Carte bancaire
+      </label>
+    </div>
+
+    <button class="action" id="inscription">Valider l’inscription</button>
+    <p id="inscription-status" class="status" aria-live="polite"></p>
+  </div>
+
+  <h2 class="section-title">Services prévus</h2>
+  <div class="panel">
+    💰 Consultation du solde — à venir<br><br>
+    📊 Consommation Internet — à venir<br><br>
+    💳 Gestion de la carte SIM — à venir
+  </div>
+</section>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -92,4 +141,53 @@ document.getElementById('login').addEventListener('click',()=>{document.getEleme
 document.getElementById('send').addEventListener('click',()=>{const v=document.getElementById('message').value.trim();document.getElementById('message-status').textContent=v?'Message de test affiché. Il n’a pas été envoyé à un service client.':'Écris ton message avant de continuer.';});
 if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script>
-</body></html>
+</body></html><section id="client">
+  <h2 class="section-title">Inscription & Paiement</h2>
+  
+  <div class="panel">
+    <b>Créer mon compte TSELATRA</b>
+    <p class="muted">Remplis les informations ci-dessous (mode démonstration)</p>
+
+    <label for="nom">Nom complet</label>
+    <input id="nom" type="text" placeholder="Ex. Rakoto Jean">
+
+    <label for="phone">Numéro de téléphone</label>
+    <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
+
+    <label for="forfait">Choisir un forfait</label>
+    <select id="forfait" style="width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;margin:6px 0 10px;font:inherit;">
+      <option value="">-- Sélectionne un forfait --</option>
+      <option value="V2 2 Go - 1 000 Ar">V2 2 Go - 1 000 Ar</option>
+      <option value="Mini Internet - 500 Ar">Mini Internet - 500 Ar</option>
+      <option value="Internet journalier - 1 000 Ar">Internet journalier - 1 000 Ar</option>
+      <option value="Internet hebdomadaire - 3 000 Ar">Internet hebdomadaire - 3 000 Ar</option>
+      <option value="Internet mensuel - 10 000 Ar">Internet mensuel - 10 000 Ar</option>
+    </select>
+
+    <label>Mode de paiement</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px;">
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="MVola" checked> MVola
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Airtel Money"> Airtel Money
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Orange Money"> Orange Money
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
+        <input type="radio" name="paiement" value="Carte bancaire"> Carte bancaire
+      </label>
+    </div>
+
+    <button class="action" id="inscription">Valider l’inscription</button>
+    <p id="inscription-status" class="status" aria-live="polite"></p>
+  </div>
+
+  <h2 class="section-title">Services prévus</h2>
+  <div class="panel">
+    💰 Consultation du solde — à venir<br><br>
+    📊 Consommation Internet — à venir<br><br>
+    💳 Gestion de la carte SIM — à venir
+  </div>
+</section>
