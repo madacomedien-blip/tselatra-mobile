@@ -1,59 +1,10 @@
-<!doctype html><section id="client">
-  <h2 class="section-title">Inscription & Paiement</h2>
-  
-  <div class="panel">
-    <b>Créer mon compte TSELATRA</b>
-    <p class="muted">Remplis les informations ci-dessous (mode démonstration)</p>
-
-    <label for="nom">Nom complet</label>
-    <input id="nom" type="text" placeholder="Ex. Rakoto Jean">
-
-    <label for="phone">Numéro de téléphone</label>
-    <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
-
-    <label for="forfait">Choisir un forfait</label>
-    <select id="forfait" style="width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;margin:6px 0 10px;font:inherit;">
-      <option value="">-- Sélectionne un forfait --</option>
-      <option value="V2 2 Go - 1 000 Ar">V2 2 Go - 1 000 Ar</option>
-      <option value="Mini Internet - 500 Ar">Mini Internet - 500 Ar</option>
-      <option value="Internet journalier - 1 000 Ar">Internet journalier - 1 000 Ar</option>
-      <option value="Internet hebdomadaire - 3 000 Ar">Internet hebdomadaire - 3 000 Ar</option>
-      <option value="Internet mensuel - 10 000 Ar">Internet mensuel - 10 000 Ar</option>
-    </select>
-
-    <label>Mode de paiement</label>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px;">
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="MVola" checked> MVola
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Airtel Money"> Airtel Money
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Orange Money"> Orange Money
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Carte bancaire"> Carte bancaire
-      </label>
-    </div>
-
-    <button class="action" id="inscription">Valider l’inscription</button>
-    <p id="inscription-status" class="status" aria-live="polite"></p>
-  </div>
-
-  <h2 class="section-title">Services prévus</h2>
-  <div class="panel">
-    💰 Consultation du solde — à venir<br><br>
-    📊 Consommation Internet — à venir<br><br>
-    💳 Gestion de la carte SIM — à venir
-  </div>
-</section>
+ <!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1045a2">
-<meta name="description" content="TSELATRA MOBILE - Démonstration de services mobiles malgaches.">
+<meta name="description" content="TSELATRA MOBILE - Services mobiles et argent mobile (démo)">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <title>TSELATRA MOBILE</title>
@@ -66,128 +17,366 @@ h1{font-size:21px;margin:0;letter-spacing:.4px}header p{margin:5px 0 0;color:#dc
 .hero{margin-top:22px;background:#ffffff20;border:1px solid #ffffff35;padding:17px;border-radius:17px}
 .hero h2{font-size:25px;margin:0 0 7px}.hero p{line-height:1.45}
 main{max-width:700px;margin:auto;padding:16px}
-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;background:white;padding:6px;border-radius:14px;box-shadow:0 3px 15px #17294b0d}
-nav button{border:0;background:transparent;padding:11px 5px;border-radius:10px;font-weight:700;color:#53627a}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:white;padding:6px;border-radius:14px;box-shadow:0 3px 15px #17294b0d;margin-bottom:8px}
+nav button{border:0;background:transparent;padding:10px 4px;border-radius:10px;font-weight:700;color:#53627a;font-size:13px}
 nav button.active{background:var(--blue);color:white}
-section{display:none;margin-top:17px}section.active{display:block}
-h2.section-title{font-size:19px;margin:18px 0 12px}
+section{display:none;margin-top:12px}section.active{display:block}
+h2.section-title{font-size:18px;margin:16px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.tile,.plan,.panel{background:white;border-radius:15px;padding:15px;box-shadow:0 3px 15px #17294b0a}
+.tile,.plan,.panel,.card{background:white;border-radius:15px;padding:15px;box-shadow:0 3px 15px #17294b0a}
 .tile .emoji{font-size:25px}.tile b{display:block;margin:7px 0 3px}.muted{color:#66748a;font-size:13px}
 .plan{margin:10px 0}.plan-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:800;color:var(--blue);font-size:19px}
 button.action{border:0;border-radius:11px;background:var(--blue);color:white;padding:12px 14px;font-weight:700;width:100%;margin-top:11px}
 button.outline{background:white;border:1px solid #cbd5e5;color:var(--blue)}
-input,textarea{width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;font:inherit;margin:6px 0 10px}
+button.danger{background:#e52c2c}
+input,textarea,select{width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;font:inherit;margin:6px 0 10px}
 .notice{background:#fff6df;border:1px solid #f0d99c;padding:12px;border-radius:12px;color:#725317;font-size:13px;line-height:1.45}
-.status{font-size:13px;color:var(--green);margin-top:9px}
+.status{font-size:13px;color:var(--green);margin-top:9px;white-space:pre-line}
+.solde-box{background:linear-gradient(135deg,#1045a2,#1d62c7);color:white;border-radius:18px;padding:22px;text-align:center;margin-bottom:16px}
+.solde-box .label{font-size:14px;opacity:.85}
+.solde-box .montant{font-size:36px;font-weight:800;margin:6px 0}
+.solde-box .devise{font-size:14px;opacity:.9}
+.tx{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #edf2f7}
+.tx:last-child{border-bottom:0}
+.tx .info b{display:block}
+.tx .montant{font-weight:700}
+.tx .positif{color:var(--green)}
+.tx .negatif{color:var(--red)}
+.hidden{display:none !important}
 footer{text-align:center;color:#78869b;font-size:12px;padding:25px 8px}
+.paiement-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px}
+.paiement-options label{display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;cursor:pointer}
 </style>
 </head>
 <body>
 <header>
- <div class="brand"><div class="mark">〰</div><div><h1>TSELATRA MOBILE</h1><p>Mifandray lavitra, miaraka hatrany !</p></div></div>
- <div class="hero"><h2>La connexion malgache 🇲🇬</h2><p>Découvrez notre projet de services mobiles et nos futurs forfaits 4G/5G.</p></div>
+  <div class="brand">
+    <div class="mark">〰</div>
+    <div>
+      <h1>TSELATRA MOBILE</h1>
+      <p>Mifandray lavitra, miaraka hatrany !</p>
+    </div>
+  </div>
+  <div class="hero">
+    <h2>La connexion malgache 🇲🇬</h2>
+    <p>Services mobiles + Argent mobile (mode démonstration)</p>
+  </div>
 </header>
+
 <main>
-<nav aria-label="Navigation">
- <button class="active" data-tab="home">Accueil</button><button data-tab="plans">Forfaits</button><button data-tab="client">Espace client</button>
-</nav>
-<section id="home" class="active">
- <h2 class="section-title">Bienvenue chez TSELATRA !</h2>
- <div class="grid">
-  <div class="tile"><span class="emoji">🌐</span><b>Internet</b><span class="muted">Futurs forfaits 4G/5G</span></div>
-  <div class="tile"><span class="emoji">📞</span><b>Appels</b><span class="muted">Communication mobile</span></div>
-  <div class="tile"><span class="emoji">💬</span><b>SMS</b><span class="muted">Messages mobiles</span></div>
-  <div class="tile"><span class="emoji">💳</span><b>Carte SIM</b><span class="muted">Future carte TSELATRA</span></div>
- </div>
- <h2 class="section-title">Notre engagement</h2>
- <div class="panel">Un projet malgache pour rapprocher les personnes, avec des services simples et accessibles.</div>
- <p class="notice">Cette application est une maquette. TSELATRA MOBILE ne fournit pas encore de réseau, de carte SIM, d'appels, de SMS ni d'accès Internet mobile.</p>
-</section>
-<section id="plans">
- <h2 class="section-title">Nos futurs forfaits Internet</h2>
- <p class="muted">Prix fictifs pour préparer le projet. Aucun achat réel n'est possible.</p>
- <div id="plans-list"></div>
- <p id="plan-status" class="status" aria-live="polite"></p>
-</section>
-<section id="client">
- <h2 class="section-title">Mon espace client</h2>
- <div class="panel">
-  <b>Bienvenue, futur abonné !</b>
-  <p class="muted">L'espace client sera activé après la mise en place d'un partenariat télécom.</p>
-  <label for="phone">Numéro de téléphone</label>
-  <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
-  <button class="action" id="login">Continuer</button>
-  <p id="login-status" class="status" aria-live="polite"></p>
- </div>
- <h2 class="section-title">Services prévus</h2>
- <div class="panel">💰 Consultation du solde — à venir<br><br>📊 Consommation Internet — à venir<br><br>💳 Gestion de la carte SIM — à venir</div>
- <h2 class="section-title">Assistance</h2>
- <div class="panel">
-  <label for="message">Ton message</label>
-  <textarea id="message" rows="3" placeholder="Comment pouvons-nous t'aider ?"></textarea>
-  <button class="action outline" id="send">Envoyer un message de test</button>
-  <p id="message-status" class="status" aria-live="polite"></p>
- </div>
-</section>
-<footer>© 2026 TSELATRA MOBILE · Madagascar · Version démonstration</footer>
-</main>
-<script>
-const plans=[["Mini Internet","500 Ar","Petit forfait découverte"],["Internet journalier","1 000 Ar","Pour une journée"],["Internet hebdomadaire","3 000 Ar","Pour 7 jours"],["Internet mensuel","10 000 Ar","Pour 30 jours"]];
-document.getElementById('plans-list').innerHTML=plans.map((p,i)=>`<div class="plan"><div class="plan-top"><div><b>${p[0]}</b><div class="muted">${p[2]}</div></div><div class="price">${p[1]}</div></div><button class="action outline" data-plan="${i}">Choisir ce forfait</button></div>`).join('');
-document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active',s.id===b.dataset.tab));}));
-document.getElementById('plans-list').addEventListener('click',e=>{if(e.target.dataset.plan!==undefined){const p=plans[Number(e.target.dataset.plan)];document.getElementById('plan-status').textContent=`${p[0]} sélectionné. Aucun paiement effectué : forfait non commercialisé.`;}});
-document.getElementById('login').addEventListener('click',()=>{document.getElementById('login-status').textContent='Mode démonstration : aucun compte client ni numéro n’est encore activé.';});
-document.getElementById('send').addEventListener('click',()=>{const v=document.getElementById('message').value.trim();document.getElementById('message-status').textContent=v?'Message de test affiché. Il n’a pas été envoyé à un service client.':'Écris ton message avant de continuer.';});
-if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-</script>
-</body></html><section id="client">
-  <h2 class="section-title">Inscription & Paiement</h2>
-  
-  <div class="panel">
-    <b>Créer mon compte TSELATRA</b>
-    <p class="muted">Remplis les informations ci-dessous (mode démonstration)</p>
+  <!-- Navigation -->
+  <nav id="main-nav" class="hidden">
+    <button class="active" data-tab="home">Accueil</button>
+    <button data-tab="argent">Argent</button>
+    <button data-tab="forfaits">Forfaits</button>
+    <button data-tab="compte">Compte</button>
+  </nav>
 
-    <label for="nom">Nom complet</label>
-    <input id="nom" type="text" placeholder="Ex. Rakoto Jean">
+  <!-- ========== ÉCRAN CONNEXION / INSCRIPTION ========== -->
+  <section id="auth" class="active">
+    <h2 class="section-title">Connexion / Inscription</h2>
+    <div class="panel">
+      <label>Nom complet</label>
+      <input id="auth-nom" type="text" placeholder="Ex. Rakoto Jean">
 
-    <label for="phone">Numéro de téléphone</label>
-    <input id="phone" type="tel" placeholder="Ex. 034 XX XXX XX">
+      <label>Numéro de téléphone</label>
+      <input id="auth-phone" type="tel" placeholder="Ex. 034 12 345 67">
 
-    <label for="forfait">Choisir un forfait</label>
-    <select id="forfait" style="width:100%;padding:12px;border:1px solid #cbd5e5;border-radius:10px;margin:6px 0 10px;font:inherit;">
-      <option value="">-- Sélectionne un forfait --</option>
-      <option value="V2 2 Go - 1 000 Ar">V2 2 Go - 1 000 Ar</option>
-      <option value="Mini Internet - 500 Ar">Mini Internet - 500 Ar</option>
-      <option value="Internet journalier - 1 000 Ar">Internet journalier - 1 000 Ar</option>
-      <option value="Internet hebdomadaire - 3 000 Ar">Internet hebdomadaire - 3 000 Ar</option>
-      <option value="Internet mensuel - 10 000 Ar">Internet mensuel - 10 000 Ar</option>
-    </select>
+      <label>Code PIN (4 chiffres)</label>
+      <input id="auth-pin" type="password" maxlength="4" placeholder="••••">
 
-    <label>Mode de paiement</label>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 12px;">
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="MVola" checked> MVola
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Airtel Money"> Airtel Money
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Orange Money"> Orange Money
-      </label>
-      <label style="display:flex;align-items:center;gap:6px;background:#f8fafc;padding:10px;border-radius:10px;border:1px solid #e2e8f0;">
-        <input type="radio" name="paiement" value="Carte bancaire"> Carte bancaire
-      </label>
+      <button class="action" id="btn-login">Se connecter / Créer un compte</button>
+      <p id="auth-status" class="status"></p>
+    </div>
+    <p class="notice">Ceci est une démonstration. Aucune vraie transaction n’est effectuée. Les données restent uniquement dans ton navigateur.</p>
+  </section>
+
+  <!-- ========== ACCUEIL ========== -->
+  <section id="home">
+    <div class="solde-box">
+      <div class="label">Solde disponible</div>
+      <div class="montant" id="solde-display">0</div>
+      <div class="devise">Ariary (Ar)</div>
     </div>
 
-    <button class="action" id="inscription">Valider l’inscription</button>
-    <p id="inscription-status" class="status" aria-live="polite"></p>
-  </div>
+    <div class="grid">
+      <div class="tile" onclick="showTab('argent')">
+        <span class="emoji">💰</span>
+        <b>Argent</b>
+        <span class="muted">Envoyer / Recharger</span>
+      </div>
+      <div class="tile" onclick="showTab('forfaits')">
+        <span class="emoji">📶</span>
+        <b>Forfaits</b>
+        <span class="muted">Internet & Appels</span>
+      </div>
+      <div class="tile">
+        <span class="emoji">📱</span>
+        <b>Crédit</b>
+        <span class="muted">Bientôt disponible</span>
+      </div>
+      <div class="tile" onclick="showTab('compte')">
+        <span class="emoji">👤</span>
+        <b>Mon compte</b>
+        <span class="muted">Profil & Historique</span>
+      </div>
+    </div>
+  </section>
 
-  <h2 class="section-title">Services prévus</h2>
-  <div class="panel">
-    💰 Consultation du solde — à venir<br><br>
-    📊 Consommation Internet — à venir<br><br>
-    💳 Gestion de la carte SIM — à venir
+  <!-- ========== ARGENT (comme MVola) ========== -->
+  <section id="argent">
+    <div class="solde-box">
+      <div class="label">Solde disponible</div>
+      <div class="montant" id="solde-display-2">0</div>
+      <div class="devise">Ariary (Ar)</div>
+    </div>
+
+    <h2 class="section-title">Recharger mon compte</h2>
+    <div class="panel">
+      <label>Montant (Ar)</label>
+      <input id="recharge-montant" type="number" placeholder="Ex. 5000" min="100">
+      <button class="action" id="btn-recharge">Recharger</button>
+      <p id="recharge-status" class="status"></p>
+    </div>
+
+    <h2 class="section-title">Envoyer de l’argent</h2>
+    <div class="panel">
+      <label>Numéro du destinataire</label>
+      <input id="send-phone" type="tel" placeholder="Ex. 034 98 765 43">
+      <label>Montant (Ar)</label>
+      <input id="send-montant" type="number" placeholder="Ex. 2000" min="100">
+      <label>Motif (optionnel)</label>
+      <input id="send-motif" type="text" placeholder="Ex. Cadeau, Facture...">
+      <button class="action" id="btn-send">Envoyer</button>
+      <p id="send-status" class="status"></p>
+    </div>
+  </section>
+
+  <!-- ========== FORFAITS ========== -->
+  <section id="forfaits">
+    <h2 class="section-title">Acheter un forfait</h2>
+    <p class="muted">Le montant sera déduit de ton solde TSELATRA.</p>
+    <div id="plans-list"></div>
+    <p id="plan-status" class="status"></p>
+  </section>
+
+  <!-- ========== COMPTE ========== -->
+  <section id="compte">
+    <h2 class="section-title">Mon compte</h2>
+    <div class="panel">
+      <b id="user-nom">—</b>
+      <p class="muted" id="user-phone">—</p>
+      <p>Solde : <b id="user-solde">0 Ar</b></p>
+      <button class="action outline" id="btn-logout" style="margin-top:12px">Se déconnecter</button>
+    </div>
+
+    <h2 class="section-title">Historique des transactions</h2>
+    <div class="panel" id="historique">
+      <p class="muted">Aucune transaction pour le moment.</p>
+    </div>
+  </section>
+
+  <footer>© 2026 TSELATRA MOBILE · Madagascar · Mode démonstration</footer>
+</main>
+
+<script>
+// ===================== DONNÉES =====================
+const plans = [
+  { nom: "V2 2 Go", prix: 1000, desc: "2 Go de data" },
+  { nom: "Mini Internet", prix: 500, desc: "Petit forfait découverte" },
+  { nom: "Internet journalier", prix: 1000, desc: "Pour 1 jour" },
+  { nom: "Internet hebdomadaire", prix: 3000, desc: "Pour 7 jours" },
+  { nom: "Internet mensuel", prix: 10000, desc: "Pour 30 jours" }
+];
+
+let user = null; // {nom, phone, pin, solde, transactions: []}
+
+// ===================== UTILITAIRES =====================
+function formatAr(n) {
+  return new Intl.NumberFormat('fr-MG').format(n) + " Ar";
+}
+
+function saveUser() {
+  localStorage.setItem("tselatra_user", JSON.stringify(user));
+}
+
+function loadUser() {
+  const data = localStorage.getItem("tselatra_user");
+  if (data) {
+    user = JSON.parse(data);
+    return true;
+  }
+  return false;
+}
+
+function updateSolde() {
+  document.getElementById("solde-display").textContent = formatAr(user.solde).replace(" Ar","");
+  document.getElementById("solde-display-2").textContent = formatAr(user.solde).replace(" Ar","");
+  document.getElementById("user-solde").textContent = formatAr(user.solde);
+}
+
+function addTransaction(type, montant, details) {
+  user.transactions.unshift({
+    type,
+    montant,
+    details,
+    date: new Date().toLocaleString("fr-FR")
+  });
+  // garder max 20 transactions
+  if (user.transactions.length > 20) user.transactions.pop();
+  saveUser();
+  renderHistorique();
+}
+
+function renderHistorique() {
+  const box = document.getElementById("historique");
+  if (!user.transactions.length) {
+    box.innerHTML = `<p class="muted">Aucune transaction pour le moment.</p>`;
+    return;
+  }
+  box.innerHTML = user.transactions.map(t => `
+    <div class="tx">
+      <div class="info">
+        <b>${t.type}</b>
+        <span class="muted">${t.details} · ${t.date}</span>
+      </div>
+      <div class="montant ${t.montant >= 0 ? 'positif' : 'negatif'}">
+        \( {t.montant >= 0 ? "+" : ""} \){formatAr(t.montant)}
+      </div>
+    </div>
+  `).join("");
+}
+
+function showTab(id) {
+  document.querySelectorAll("main section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll("#main-nav button").forEach(b => {
+    b.classList.toggle("active", b.dataset.tab === id);
+  });
+}
+
+// ===================== AUTH =====================
+document.getElementById("btn-login").onclick = () => {
+  const nom = document.getElementById("auth-nom").value.trim();
+  const phone = document.getElementById("auth-phone").value.trim();
+  const pin = document.getElementById("auth-pin").value.trim();
+
+  if (!nom || !phone || pin.length !== 4) {
+    document.getElementById("auth-status").textContent = "Remplis correctement tous les champs (PIN = 4 chiffres).";
+    return;
+  }
+
+  // Création ou connexion
+  user = {
+    nom,
+    phone,
+    pin,
+    solde: 5000, // solde de départ offert
+    transactions: [{
+      type: "Bienvenue",
+      montant: 5000,
+      details: "Solde de démarrage offert",
+      date: new Date().toLocaleString("fr-FR")
+    }]
+  };
+  saveUser();
+  enterApp();
+};
+
+function enterApp() {
+  document.getElementById("auth").classList.remove("active");
+  document.getElementById("main-nav").classList.remove("hidden");
+  document.getElementById("home").classList.add("active");
+
+  document.getElementById("user-nom").textContent = user.nom;
+  document.getElementById("user-phone").textContent = user.phone;
+  updateSolde();
+  renderHistorique();
+}
+
+// Déconnexion
+document.getElementById("btn-logout").onclick = () => {
+  if (confirm("Se déconnecter ? (les données restent dans le navigateur)")) {
+    location.reload();
+  }
+};
+
+// ===================== RECHARGE =====================
+document.getElementById("btn-recharge").onclick = () => {
+  const montant = parseInt(document.getElementById("recharge-montant").value);
+  if (!montant || montant < 100) {
+    document.getElementById("recharge-status").textContent = "Montant minimum : 100 Ar";
+    return;
+  }
+  user.solde += montant;
+  addTransaction("Recharge", montant, "Recharge de compte");
+  updateSolde();
+  document.getElementById("recharge-status").textContent = `+${formatAr(montant)} ajoutés avec succès !`;
+  document.getElementById("recharge-montant").value = "";
+};
+
+// ===================== ENVOYER ARGENT =====================
+document.getElementById("btn-send").onclick = () => {
+  const dest = document.getElementById("send-phone").value.trim();
+  const montant = parseInt(document.getElementById("send-montant").value);
+  const motif = document.getElementById("send-motif").value.trim() || "Transfert";
+
+  if (!dest || !montant || montant < 100) {
+    document.getElementById("send-status").textContent = "Vérifie le numéro et le montant (min. 100 Ar)";
+    return;
+  }
+  if (montant > user.solde) {
+    document.getElementById("send-status").textContent = "Solde insuffisant.";
+    return;
+  }
+
+  user.solde -= montant;
+  addTransaction("Envoi", -montant, `Vers ${dest} · ${motif}`);
+  updateSolde();
+  document.getElementById("send-status").textContent = `✅ ${formatAr(montant)} envoyés à ${dest}`;
+  document.getElementById("send-phone").value = "";
+  document.getElementById("send-montant").value = "";
+  document.getElementById("send-motif").value = "";
+};
+
+// ===================== FORFAITS =====================
+document.getElementById("plans-list").innerHTML = plans.map((p, i) => `
+  <div class="plan">
+    <div class="plan-top">
+      <div>
+        <b>${p.nom}</b>
+        <div class="muted">${p.desc}</div>
+      </div>
+      <div class="price">${formatAr(p.prix)}</div>
+    </div>
+    <button class="action outline" data-plan="${i}">Acheter</button>
   </div>
-</section>
+`).join("");
+
+document.getElementById("plans-list").addEventListener("click", e => {
+  if (e.target.dataset.plan === undefined) return;
+  const p = plans[Number(e.target.dataset.plan)];
+
+  if (p.prix > user.solde) {
+    document.getElementById("plan-status").textContent = "Solde insuffisant pour ce forfait.";
+    return;
+  }
+
+  user.solde -= p.prix;
+  addTransaction("Achat forfait", -p.prix, p.nom);
+  updateSolde();
+  document.getElementById("plan-status").textContent = `✅ Forfait « ${p.nom} » acheté avec succès !`;
+});
+
+// ===================== NAVIGATION =====================
+document.querySelectorAll("#main-nav button").forEach(btn => {
+  btn.addEventListener("click", () => showTab(btn.dataset.tab));
+});
+
+// ===================== DÉMARRAGE =====================
+if (loadUser()) {
+  enterApp();
+}
+</script>
+</body>
+</html>
